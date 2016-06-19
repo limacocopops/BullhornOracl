@@ -71,7 +71,7 @@ public class DbBullhorn {
 		return posts;
 	}
 	
-	public static List<Bhpost> postsofUser(int userid)
+	public static List<Bhpost> postsofUser(long userid)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		List<Bhpost> userposts = null;

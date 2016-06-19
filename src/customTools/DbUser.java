@@ -10,7 +10,7 @@ import model.Bhuser;
 
 public class DbUser {
 
-	public static Bhuser getUser(int userID)
+	public static Bhuser getUser(long userID)
 	{
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		Bhuser user = em.find(Bhuser.class, userID);
@@ -20,18 +20,18 @@ public class DbUser {
 	public static void insert(Bhuser bhUser) {
 		EntityManager em = DbUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		System.out.println("DbBullhorn: begin transaction");
+		//System.out.println("DbBullhorn: begin transaction");
 		try {
 			trans.begin();
 			em.persist(bhUser);
-			System.out.println("DbBullhorn: commit transaction");
+			//System.out.println("DbBullhorn: commit transaction");
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("DbBullhorn: rollback transaction");
+			//System.out.println("DbBullhorn: rollback transaction");
 			trans.rollback();
 		} finally {
-			System.out.println("DbBullhorn: close em");
+			//System.out.println("DbBullhorn: close em");
 			em.close();
 		}
 	}

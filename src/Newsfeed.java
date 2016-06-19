@@ -31,7 +31,7 @@ public class Newsfeed extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int filterByUserID = 0; 
+		long filterByUserID = 0; 
 		String searchtext = "";
 		
 		String nextURL = "/error.jsp";

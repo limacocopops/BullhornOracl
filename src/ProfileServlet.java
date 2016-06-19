@@ -34,7 +34,7 @@ public class ProfileServlet extends HttpServlet {
 		 */
 		HttpSession session = request.getSession();
 		String nextURL = "/error.jsp";
-		int userid = 0;
+		long userid = 0;
 		String action = "";
 		Bhuser profileUser = null;
 		Bhuser loggedInUser = null;
@@ -51,13 +51,13 @@ public class ProfileServlet extends HttpServlet {
 		
 		
 		try{
-		userid = Integer.parseInt(request.getParameter("userid"));
+		userid = Long.parseLong(request.getParameter("userid"));
 		action = request.getParameter("action");
 		
 		
 		//update profile for user in request variable if action = updateprofile
 		if (request.getParameter("action").equals("updateprofile")){
-			int uid = Integer.parseInt(request.getParameter("userid"));
+			long uid = Long.parseLong(request.getParameter("userid"));
 			String userEmail = request.getParameter("useremail");
 			String userMotto = request.getParameter("usermotto");
 			Bhuser updateUser = DbUser.getUser(uid);
